@@ -17,8 +17,8 @@ public final class App {
         WeatherDataSourceCsvImpl weatherDataSourceCsv = new WeatherDataSourceCsvImpl();
         WeatherService weatherService = new WeatherService(weatherDataSourceCsv);
 
-        String dayWithSmallestTempSpread = weatherService.getDayWithSmallestTempSpread();     // Your day analysis function call …
-        System.out.printf("Day with smallest temperature spread: %s%n", dayWithSmallestTempSpread);
+        int dayWithSmallestTempSpread = weatherService.getDayWithSmallestTempSpread();     // Your day analysis function call …
+        System.out.printf("Day with smallest temperature spread: %d%n", dayWithSmallestTempSpread);
 
         String countryWithHighestPopulationDensity = "Some country"; // Your population density analysis function call …
         System.out.printf("Country with highest population density: %s%n", countryWithHighestPopulationDensity);

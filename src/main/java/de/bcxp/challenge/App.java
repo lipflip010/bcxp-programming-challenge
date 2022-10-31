@@ -14,7 +14,7 @@ public final class App {
      * @param args The CLI arguments passed
      */
     public static void main(String... args) {
-        WeatherDataSourceCsvImpl weatherDataSourceCsv = new WeatherDataSourceCsvImpl("weather.csv");
+        WeatherDataSourceCsvImpl weatherDataSourceCsv = new WeatherDataSourceCsvImpl("src/main/resources/de/bcxp/challenge/weather.csv");
         WeatherService weatherService = new WeatherService(weatherDataSourceCsv);
 
         int dayWithSmallestTempSpread;   // Your day analysis function call …

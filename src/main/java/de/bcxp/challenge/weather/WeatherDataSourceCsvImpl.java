@@ -20,7 +20,7 @@ public class WeatherDataSourceCsvImpl implements WeatherDataSource {
 
         List<DayMeasurement> dayMeasurements;
         try {
-            dayMeasurements = new CsvToBeanBuilder(new FileReader(filePath)).withType(DayMeasurement.class).build().parse();
+            dayMeasurements = new CsvToBeanBuilder<DayMeasurement>(new FileReader(filePath)).withType(DayMeasurement.class).build().parse();
         } catch (FileNotFoundException e) {
             throw new DataSourceEmptyException(String.format("Error: File %s not found. %n", filePath));
         }

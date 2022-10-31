@@ -20,7 +20,10 @@ public class WeatherService {
 
         ArrayList<DayMeasurement> dayMeasurements = new ArrayList<>(dayMeasurementList);
         dayMeasurements.sort(Comparator.comparing(DayMeasurement::getTemperatureSpread));
-        return dayMeasurements.get(0).getDayOfTheMonth();
+
+        DayMeasurement minimumSpreadMeasurement = dayMeasurements.get(0);
+        System.out.printf("WeatherService - getDayWithSmallestTempSpread: Day %d Spread: %d%n", minimumSpreadMeasurement.getDayOfTheMonth(), minimumSpreadMeasurement.getTemperatureSpread());
+        return minimumSpreadMeasurement.getDayOfTheMonth();
     }
 
 }

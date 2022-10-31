@@ -23,6 +23,7 @@ public class CountryDataSourceCsvImpl implements CountryDataSource {
         try {
 
             countries = new CsvToBeanBuilder<Country>(new FileReader(filePath))
+                    .withSeparator(';')
                     .withType(Country.class).build().parse();
         } catch (FileNotFoundException e) {
             throw new InvalidDataSourceException(String.format("Error: File %s not found. %n", filePath));

@@ -1,6 +1,6 @@
 package de.bcxp.challenge.country;
 
-import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvBindByPosition;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,13 +14,13 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Country {
 
-    @CsvBindByName(column = "Name")
+    @CsvBindByPosition(position = 0)
     private String name;
 
-    @CsvBindByName(column = "Population")
+    @CsvBindByPosition(position = 3)
     private int population;
 
-    @CsvBindByName(column = "Area (km²)")
+    @CsvBindByPosition(position = 4)
     private int area;
 
     public float getPopulationDensity() {

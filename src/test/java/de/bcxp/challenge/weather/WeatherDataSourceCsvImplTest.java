@@ -15,7 +15,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class WeatherDataSourceCsvImplTest {
 
-
     @Test
     @DisplayName("should read csv and map data to beans")
     void getDayMeasurements() throws InvalidDataSourceException {

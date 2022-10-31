@@ -5,3 +5,6 @@
 * use lombok to reduce boilerplate code
 * use mockito to mock for unit tests
 * use assertJ to compare list of objects
+
+# Limitations
+* exceptions from the opencsv library are not handled

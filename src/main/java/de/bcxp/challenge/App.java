@@ -1,5 +1,7 @@
 package de.bcxp.challenge;
 
+import de.bcxp.challenge.country.CountryDataSourceCsvImpl;
+import de.bcxp.challenge.country.CountryService;
 import de.bcxp.challenge.weather.WeatherDataSourceCsvImpl;
 import de.bcxp.challenge.weather.WeatherService;
 
@@ -17,16 +19,22 @@ public final class App {
         WeatherDataSourceCsvImpl weatherDataSourceCsv = new WeatherDataSourceCsvImpl("src/main/resources/de/bcxp/challenge/weather.csv");
         WeatherService weatherService = new WeatherService(weatherDataSourceCsv);
 
-        int dayWithSmallestTempSpread;   // Your day analysis function call …
+        // Your day analysis function call …
         try {
-            dayWithSmallestTempSpread = weatherService.getDayWithSmallestTempSpread();
+            int dayWithSmallestTempSpread = weatherService.getDayWithSmallestTempSpread();
             System.out.printf("Day with smallest temperature spread: %d%n", dayWithSmallestTempSpread);
         } catch (InvalidDataSourceException e) {
             System.out.printf(e.getMessage());
         }
 
+        CountryDataSourceCsvImpl countryDataSourceCsv = new CountryDataSourceCsvImpl("src/main/resources/de/bcxp/challenge/countries.csv");
+        CountryService countryService = new CountryService(countryDataSourceCsv);
+        // Your day analysis function call …
+        try {
 
-        String countryWithHighestPopulationDensity = "Some country"; // Your population density analysis function call …
-        System.out.printf("Country with highest population density: %s%n", countryWithHighestPopulationDensity);
+            System.out.printf("Country with highest population density: %s%n", countryService.getCountryWithHighestPopulationDensity());
+        } catch (InvalidDataSourceException e) {
+            System.out.printf(e.getMessage());
+        }
     }
 }

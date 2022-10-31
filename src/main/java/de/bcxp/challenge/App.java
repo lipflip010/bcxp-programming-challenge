@@ -21,7 +21,7 @@ public final class App {
         try {
             dayWithSmallestTempSpread = weatherService.getDayWithSmallestTempSpread();
             System.out.printf("Day with smallest temperature spread: %d%n", dayWithSmallestTempSpread);
-        } catch (DataSourceEmptyException e) {
+        } catch (InvalidDataSourceException e) {
             System.out.printf(e.getMessage());
         }
 

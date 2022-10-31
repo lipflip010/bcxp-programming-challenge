@@ -1,7 +1,7 @@
 package de.bcxp.challenge.weather;
 
 import com.opencsv.bean.CsvToBeanBuilder;
-import de.bcxp.challenge.DataSourceEmptyException;
+import de.bcxp.challenge.InvalidDataSourceException;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -16,13 +16,13 @@ public class WeatherDataSourceCsvImpl implements WeatherDataSource {
     }
 
     @Override
-    public List<DayMeasurement> getDayMeasurements() throws DataSourceEmptyException {
+    public List<DayMeasurement> getDayMeasurements() throws InvalidDataSourceException {
 
         List<DayMeasurement> dayMeasurements;
         try {
             dayMeasurements = new CsvToBeanBuilder<DayMeasurement>(new FileReader(filePath)).withType(DayMeasurement.class).build().parse();
         } catch (FileNotFoundException e) {
-            throw new DataSourceEmptyException(String.format("Error: File %s not found. %n", filePath));
+            throw new InvalidDataSourceException(String.format("Error: File %s not found. %n", filePath));
         }
 
         return dayMeasurements;

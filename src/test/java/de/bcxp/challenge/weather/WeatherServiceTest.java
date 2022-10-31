@@ -1,6 +1,6 @@
 package de.bcxp.challenge.weather;
 
-import de.bcxp.challenge.DataSourceEmptyException;
+import de.bcxp.challenge.InvalidDataSourceException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ class WeatherServiceTest {
 
     @Test
     @DisplayName("should return day with the smallest temperature spread")
-    void getDayWithSmallestTempSpread() throws DataSourceEmptyException {
+    void getDayWithSmallestTempSpread() throws InvalidDataSourceException {
         DayMeasurement dayMeasurement1 = DayMeasurement.builder().dayOfTheMonth(5).minimumTemperature(40).maximumTemperature(70).build();
         DayMeasurement dayMeasurement2 = DayMeasurement.builder().dayOfTheMonth(7).minimumTemperature(30).maximumTemperature(80).build();
         DayMeasurement dayMeasurement3 = DayMeasurement.builder().dayOfTheMonth(1).minimumTemperature(79).maximumTemperature(80).build();

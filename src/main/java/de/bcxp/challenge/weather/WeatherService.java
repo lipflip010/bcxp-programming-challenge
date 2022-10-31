@@ -1,6 +1,6 @@
 package de.bcxp.challenge.weather;
 
-import de.bcxp.challenge.DataSourceEmptyException;
+import de.bcxp.challenge.InvalidDataSourceException;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -15,7 +15,7 @@ public class WeatherService {
     }
 
 
-    public int getDayWithSmallestTempSpread() throws DataSourceEmptyException {
+    public int getDayWithSmallestTempSpread() throws InvalidDataSourceException {
         List<DayMeasurement> dayMeasurementList = weatherDataSource.getDayMeasurements();
 
         ArrayList<DayMeasurement> dayMeasurements = new ArrayList<>(dayMeasurementList);

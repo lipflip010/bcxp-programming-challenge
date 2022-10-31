@@ -14,11 +14,17 @@ public final class App {
      * @param args The CLI arguments passed
      */
     public static void main(String... args) {
-        WeatherDataSourceCsvImpl weatherDataSourceCsv = new WeatherDataSourceCsvImpl();
+        WeatherDataSourceCsvImpl weatherDataSourceCsv = new WeatherDataSourceCsvImpl("weather.csv");
         WeatherService weatherService = new WeatherService(weatherDataSourceCsv);
 
-        int dayWithSmallestTempSpread = weatherService.getDayWithSmallestTempSpread();     // Your day analysis function call …
-        System.out.printf("Day with smallest temperature spread: %d%n", dayWithSmallestTempSpread);
+        int dayWithSmallestTempSpread;   // Your day analysis function call …
+        try {
+            dayWithSmallestTempSpread = weatherService.getDayWithSmallestTempSpread();
+            System.out.printf("Day with smallest temperature spread: %d%n", dayWithSmallestTempSpread);
+        } catch (DataSourceEmptyException e) {
+            System.out.printf(e.getMessage());
+        }
+
 
         String countryWithHighestPopulationDensity = "Some country"; // Your population density analysis function call …
         System.out.printf("Country with highest population density: %s%n", countryWithHighestPopulationDensity);

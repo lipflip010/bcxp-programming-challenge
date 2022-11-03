@@ -24,6 +24,7 @@ public class CountryRepositoryCsvImpl implements CountryRepository {
 
             countries = new CsvToBeanBuilder<Country>(new FileReader(filePath))
                     .withSeparator(';')
+                    .withSkipLines(1)
                     .withType(Country.class).build().parse();
         } catch (FileNotFoundException e) {
             throw new InvalidDataSourceException(String.format("Error: File %s not found. %n", filePath));

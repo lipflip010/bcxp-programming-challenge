@@ -27,6 +27,7 @@ public class WeatherRepositoryCsvImpl implements WeatherRepository {
             throw new InvalidDataSourceException(String.format("Error: File %s not found. %n", filePath));
         }
 
+        System.out.printf("[WeatherRepositoryCsvImpl] Read %d measurements from file %s%n",dayMeasurements.size(), filePath );
         return dayMeasurements;
     }
 }

@@ -23,7 +23,7 @@ public class CountryService {
         Collections.reverse(countries);
         Country highestDensityCountry = countries.get(0);
         System.out.printf(
-                "CountryService - getCountryWithHighestPopulationDensity: Name %s Density: %f%n",
+                "[CountryService] Country with highest population density: Name %s Density: %f%n",
                 highestDensityCountry.getName(),
                 highestDensityCountry.getPopulationDensity());
         return highestDensityCountry.getName();

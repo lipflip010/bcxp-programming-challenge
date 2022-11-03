@@ -28,7 +28,7 @@ public class CountryRepositoryCsvImpl implements CountryRepository {
         } catch (FileNotFoundException e) {
             throw new InvalidDataSourceException(String.format("Error: File %s not found. %n", filePath));
         }
-
+        System.out.printf("[CountryRepositoryCsvImpl] Read %d countries from file %s%n",countries.size(), filePath );
         return countries;
     }
 }

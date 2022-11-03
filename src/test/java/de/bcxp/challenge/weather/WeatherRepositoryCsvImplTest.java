@@ -37,7 +37,6 @@ class WeatherRepositoryCsvImplTest {
         assertThat(result).usingRecursiveFieldByFieldElementComparator(configuration)
                 .contains(dayMeasurement2);
 
-        assertThat(result).hasSameSizeAs(expected);
     }
 
     @Test

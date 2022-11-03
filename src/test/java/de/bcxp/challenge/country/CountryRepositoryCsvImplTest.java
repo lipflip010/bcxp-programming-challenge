@@ -36,7 +36,6 @@ class CountryRepositoryCsvImplTest {
         assertThat(result).usingRecursiveFieldByFieldElementComparator(configuration)
                 .contains(country2);
 
-        assertThat(result).hasSameSizeAs(expected);
     }
 
     @Test

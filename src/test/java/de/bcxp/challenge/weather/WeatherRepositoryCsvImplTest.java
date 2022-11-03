@@ -13,12 +13,12 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-class WeatherDataSourceCsvImplTest {
+class WeatherRepositoryCsvImplTest {
 
     @Test
     @DisplayName("should read csv and map data to beans")
     void getDayMeasurements() throws InvalidDataSourceException {
-        WeatherDataSourceCsvImpl sut = new WeatherDataSourceCsvImpl("src/test/resources/weatherTest.csv");
+        WeatherRepositoryCsvImpl sut = new WeatherRepositoryCsvImpl("src/test/resources/weatherTest.csv");
         List<DayMeasurement> result = sut.getDayMeasurements();
 
         DayMeasurement dayMeasurement1 = DayMeasurement.builder().dayOfTheMonth(1).maximumTemperature(40).minimumTemperature(20).build();
@@ -44,7 +44,7 @@ class WeatherDataSourceCsvImplTest {
     @DisplayName("should throw exception if file not found")
     void getDayMeasurementsThrows() {
         String filePath = "src/test/resources/notfound.csv";
-        WeatherDataSourceCsvImpl sut = new WeatherDataSourceCsvImpl(filePath);
+        WeatherRepositoryCsvImpl sut = new WeatherRepositoryCsvImpl(filePath);
         Exception exception = assertThrows(InvalidDataSourceException.class, sut::getDayMeasurements);
 
         assertEquals(String.format("Error: File %s not found. %n", filePath), exception.getMessage());

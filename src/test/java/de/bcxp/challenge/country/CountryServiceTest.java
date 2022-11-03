@@ -13,12 +13,12 @@ import static org.mockito.Mockito.when;
 
 class CountryServiceTest {
 
-    private final CountryDataSource countryDataSource = Mockito.mock(CountryDataSource.class);
+    private final CountryRepository countryRepository = Mockito.mock(CountryRepository.class);
     private CountryService sut;
 
     @BeforeEach
     void setup() {
-        sut = new CountryService(countryDataSource);
+        sut = new CountryService(countryRepository);
     }
 
     @Test
@@ -33,7 +33,7 @@ class CountryServiceTest {
         Country country6 = Country.builder().name("India").population(500).area(500).build();
         List<Country> mockReturn = List.of(country1, country2, country3, country4, country5, country6);
 
-        when(countryDataSource.getCountries()).thenReturn(mockReturn);
+        when(countryRepository.getCountries()).thenReturn(mockReturn);
 
         assertEquals("China", sut.getCountryWithHighestPopulationDensity());
     }

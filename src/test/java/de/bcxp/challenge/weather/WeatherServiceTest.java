@@ -13,12 +13,12 @@ import static org.mockito.Mockito.when;
 
 class WeatherServiceTest {
 
-    private final WeatherDataSource weatherDataSource = Mockito.mock(WeatherDataSource.class);
+    private final WeatherRepository weatherRepository = Mockito.mock(WeatherRepository.class);
     private WeatherService sut;
 
     @BeforeEach
     void setup() {
-        sut = new WeatherService(weatherDataSource);
+        sut = new WeatherService(weatherRepository);
     }
 
     @Test
@@ -30,7 +30,7 @@ class WeatherServiceTest {
         DayMeasurement dayMeasurement4 = DayMeasurement.builder().dayOfTheMonth(20).minimumTemperature(21).maximumTemperature(80).build();
         List<DayMeasurement> mockReturn =  List.of(dayMeasurement1,dayMeasurement2, dayMeasurement3, dayMeasurement4);
 
-        when(weatherDataSource.getDayMeasurements()).thenReturn(mockReturn);
+        when(weatherRepository.getDayMeasurements()).thenReturn(mockReturn);
 
         assertEquals(1, sut.getDayWithSmallestTempSpread());
 

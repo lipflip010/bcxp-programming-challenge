@@ -8,15 +8,15 @@ import java.util.Comparator;
 import java.util.List;
 
 public class CountryService {
-    private final CountryDataSource countryDataSource;
+    private final CountryRepository countryRepository;
 
-    public CountryService(CountryDataSource countryDataSource) {
-        this.countryDataSource = countryDataSource;
+    public CountryService(CountryRepository countryRepository) {
+        this.countryRepository = countryRepository;
     }
 
 
     public String getCountryWithHighestPopulationDensity() throws InvalidDataSourceException {
-        List<Country> countryList = countryDataSource.getCountries();
+        List<Country> countryList = countryRepository.getCountries();
 
         ArrayList<Country> countries = new ArrayList<>(countryList);
         countries.sort(Comparator.comparing(Country::getPopulationDensity));

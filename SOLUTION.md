@@ -7,4 +7,6 @@
 * use assertJ to compare list of objects
 
 # Limitations
-* exceptions from the opencsv library are not handled
+* unfortunately I could not find a way to handle the exceptions thrown by the open csv library. Thus, error 
+handling with regard to the file parsing could not be implemented. It might have been a better choice
+to implement or more simplistic csv parser by myself.

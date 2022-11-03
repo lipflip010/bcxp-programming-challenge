@@ -11,12 +11,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class CountryDataSourceCsvImplTest {
+class CountryRepositoryCsvImplTest {
 
     @Test
     @DisplayName("should read csv and map data to beans")
     void getCountries() throws InvalidDataSourceException {
-        CountryDataSourceCsvImpl sut = new CountryDataSourceCsvImpl("src/test/resources/countryTest.csv");
+        CountryRepositoryCsvImpl sut = new CountryRepositoryCsvImpl("src/test/resources/countryTest.csv");
         List<Country> result = sut.getCountries();
 
         Country country1 = Country.builder().name("Test").area(10).population(200).build();
@@ -43,7 +43,7 @@ class CountryDataSourceCsvImplTest {
     @DisplayName("should throw exception if file not found")
     void getCountriesThrows() {
         String filePath = "src/test/resources/notfound.csv";
-        CountryDataSourceCsvImpl sut = new CountryDataSourceCsvImpl(filePath);
+        CountryRepositoryCsvImpl sut = new CountryRepositoryCsvImpl(filePath);
         Exception exception = assertThrows(InvalidDataSourceException.class, sut::getCountries);
 
         assertEquals(String.format("Error: File %s not found. %n", filePath), exception.getMessage());

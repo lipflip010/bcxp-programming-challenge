@@ -8,11 +8,11 @@ import java.io.FileReader;
 import java.util.List;
 
 
-public class CountryDataSourceCsvImpl implements CountryDataSource {
+public class CountryRepositoryCsvImpl implements CountryRepository {
 
     private final String filePath;
 
-    public CountryDataSourceCsvImpl(String filePath) {
+    public CountryRepositoryCsvImpl(String filePath) {
         this.filePath = filePath;
     }
 

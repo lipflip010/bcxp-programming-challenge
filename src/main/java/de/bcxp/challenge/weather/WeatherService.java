@@ -7,16 +7,16 @@ import java.util.Comparator;
 import java.util.List;
 
 public class WeatherService {
-    private final WeatherDataSource weatherDataSource;
+    private final WeatherRepository weatherRepository;
 
 
-    public WeatherService(WeatherDataSource weatherDataSource) {
-        this.weatherDataSource = weatherDataSource;
+    public WeatherService(WeatherRepository weatherRepository) {
+        this.weatherRepository = weatherRepository;
     }
 
 
     public int getDayWithSmallestTempSpread() throws InvalidDataSourceException {
-        List<DayMeasurement> dayMeasurementList = weatherDataSource.getDayMeasurements();
+        List<DayMeasurement> dayMeasurementList = weatherRepository.getDayMeasurements();
 
         ArrayList<DayMeasurement> dayMeasurements = new ArrayList<>(dayMeasurementList);
         dayMeasurements.sort(Comparator.comparing(DayMeasurement::getTemperatureSpread));

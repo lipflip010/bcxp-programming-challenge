@@ -1,8 +1,8 @@
 package de.bcxp.challenge;
 
-import de.bcxp.challenge.country.CountryDataSourceCsvImpl;
+import de.bcxp.challenge.country.CountryRepositoryCsvImpl;
 import de.bcxp.challenge.country.CountryService;
-import de.bcxp.challenge.weather.WeatherDataSourceCsvImpl;
+import de.bcxp.challenge.weather.WeatherRepositoryCsvImpl;
 import de.bcxp.challenge.weather.WeatherService;
 
 /**
@@ -16,7 +16,7 @@ public final class App {
      * @param args The CLI arguments passed
      */
     public static void main(String... args) {
-        WeatherDataSourceCsvImpl weatherDataSourceCsv = new WeatherDataSourceCsvImpl("src/main/resources/de/bcxp/challenge/weather.csv");
+        WeatherRepositoryCsvImpl weatherDataSourceCsv = new WeatherRepositoryCsvImpl("src/main/resources/de/bcxp/challenge/weather.csv");
         WeatherService weatherService = new WeatherService(weatherDataSourceCsv);
 
         // Your day analysis function call …
@@ -27,7 +27,7 @@ public final class App {
             System.out.printf(e.getMessage());
         }
 
-        CountryDataSourceCsvImpl countryDataSourceCsv = new CountryDataSourceCsvImpl("src/main/resources/de/bcxp/challenge/countries.csv");
+        CountryRepositoryCsvImpl countryDataSourceCsv = new CountryRepositoryCsvImpl("src/main/resources/de/bcxp/challenge/countries.csv");
         CountryService countryService = new CountryService(countryDataSourceCsv);
         // Your day analysis function call …
         try {

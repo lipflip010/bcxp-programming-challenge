@@ -7,11 +7,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
 
-public class WeatherDataSourceCsvImpl implements WeatherDataSource {
+public class WeatherRepositoryCsvImpl implements WeatherRepository {
 
     private final String filePath;
 
-    public WeatherDataSourceCsvImpl(String filePath) {
+    public WeatherRepositoryCsvImpl(String filePath) {
         this.filePath = filePath;
     }
 
